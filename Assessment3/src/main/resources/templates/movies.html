@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Movies</title>
+    <style>
+        body {
+            font-family: Verdana, sans-serif;
+            margin: 30px;
+        }
+
+        table {
+            width: 100%;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 6px;
+        }
+
+        th {
+            background-color: #eaeaea;
+        }
+
+        .top-link {
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<h3>Movie List</h3>
+
+<a class="top-link" th:href="@{/movies/new}">Add Movie</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Director</th>
+        <th>Year</th>
+        <th>Rating</th>
+        <th>Action</th>
+    </tr>
+
+    <tr th:each="movie : ${movies}">
+        <td th:text="${movie.id}"></td>
+        <td th:text="${movie.title}"></td>
+        <td th:text="${movie.genre}"></td>
+        <td th:text="${movie.director}"></td>
+        <td th:text="${movie.releaseYear}"></td>
+        <td th:text="${movie.rating}"></td>
+        <td>
+            <a th:href="@{/movies/edit/{id}(id=${movie.id})}">Edit</a> |
+            <a th:href="@{/movies/delete/{id}(id=${movie.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

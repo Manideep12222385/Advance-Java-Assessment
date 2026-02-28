@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Movie Form</title>
+    <style>
+        body {
+            font-family: Verdana, sans-serif;
+            margin: 30px;
+        }
+
+        input {
+            margin-bottom: 10px;
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+
+<h3>Movie Form</h3>
+
+<form th:action="@{/movies/save}" th:object="${movie}" method="post">
+
+    <input type="hidden" th:field="*{id}" />
+
+    <div>
+        Title <br>
+        <input type="text" th:field="*{title}">
+    </div>
+
+    <div>
+        Genre <br>
+        <input type="text" th:field="*{genre}">
+    </div>
+
+    <div>
+        Director <br>
+        <input type="text" th:field="*{director}">
+    </div>
+
+    <div>
+        Release Year <br>
+        <input type="number" th:field="*{releaseYear}">
+    </div>
+
+    <div>
+        Rating <br>
+        <input type="number" step="0.1" th:field="*{rating}">
+    </div>
+
+    <br>
+
+    <button type="submit">Save</button>
+    <a th:href="@{/movies}">Cancel</a>
+
+</form>
+
+</body>
+</html>
