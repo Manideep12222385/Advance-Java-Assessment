@@ -1,0 +1,15 @@
+# Eclipse workspace
+.metadata/
+RemoteSystemsTempFiles/
+
+# Eclipse project files
+.project
+.classpath
+.settings/
+
+# Maven
+target/
+
+# OS
+.DS_Store
+Thumbs.db
